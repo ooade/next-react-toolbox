@@ -1,5 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = {
   webpack: (config, { dev: __DEV__ }) => {
@@ -14,7 +13,7 @@ module.exports = {
               loader: 'css-loader',
               query: {
                 modules: true,
-                sourceMap: true,
+                sourceMap: __DEV__,
                 minimize: !__DEV__,
                 importLoaders: 1,
                 localIdentName: '[local]__[hash:base64:3]',
@@ -35,22 +34,13 @@ module.exports = {
             return 'css/style.css';
           }
 
-          const PATH = getPath('css/[name].[contenthash:4].css')
+          const PATH = getPath('css/[name].css')
             .replace('.js', '')
             .replace('bundles/pages/', '');
 
           return PATH;
         },
         allChunks: true
-      }),
-      new WebpackAssetsManifest({
-        output: 'css-manifest.json',
-        publicPath: (val, manifest) => {
-          switch(manifest.getExtension(val)) {
-            case '.css':
-              return '.next/' + val;
-          }
-        }
       })
     )
 

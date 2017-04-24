@@ -7,9 +7,9 @@
 ## Contents
 - [Getting Started / Installation](#getting-started--installation)
 - [Usage](#usage)
- - [How it works](#how-it-works)
- - [Run it](#run-it)
- - [Usage in a non-nextjs App](#usage-in-a-non-nextjs-app)
+  - [How it works](#how-it-works)
+  - [Run it](#run-it)
+  - [Usage in a non-nextjs App](#usage-in-a-non-nextjs-app)
 - [Deployment](#deployment)
 - [Tips](#tips)
 
@@ -36,9 +36,9 @@ Webpack handles the loading of css and styles to the page. With ExtractTextPlugi
 
 We use webpack-assets-manifest plugin to keep track of only our css files thereby creating a css-manifest.json file.
 
-Thanks to the power of css-modules-require-hook, we were able to make our css files recognizable by our server with a matching localIdentName as used in our css-loader.
+Thanks to the power of css-modules-require-hook, we were able to make our css files recognizable by our server with a matching `localIdentName` as used in our css-loader.
 
-Our CSS files are injected to the page by the library we created (attachStyle) which takes an argument (pathname).
+Our CSS files are injected to the page by the library we created `lib/StyleSheet` which takes a `pathname`.
 
 #### Run it
 It's simple.
@@ -61,8 +61,8 @@ cssModulesHook({
   generateScopedName: '[local]__[hash:base64:3]'
 });
 ```
-And wherever you have the SSR logic, include the attachStyle library. <br/>
-P.S: You will have to strip off the ".next" paths and also replace `bundles/pages${path}.js.css` to wherever the stylesheets are being generated to.
+And wherever you have the SSR logic, include the `StyleSheet` library. <br/>
+P.S: You will have to strip off the ".next" paths and also replace `bundles/pages${path}.js.css` to wherever the stylesheet(s) are being generated to.
 
 ### Deployment
 ```
