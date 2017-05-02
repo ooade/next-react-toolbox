@@ -5,7 +5,6 @@
 </div>
 
 ## Contents
-
 - [Getting Started / Installation](#getting-started--installation)
 - [Usage](#usage)
   - [How it works](#how-it-works)
