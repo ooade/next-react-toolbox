@@ -6,7 +6,6 @@
 
 ## Contents
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ooade/next-react-toolbox.svg)](https://greenkeeper.io/)
 - [Getting Started / Installation](#getting-started--installation)
 - [Usage](#usage)
   - [How it works](#how-it-works)
